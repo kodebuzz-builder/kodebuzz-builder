@@ -1,0 +1,21 @@
+sudo: false
+language: c
+compiler:
+  - gcc
+  - clang
+addons:
+  apt:
+    packages:
+      - gcc-multilib
+#     - valgrind
+env:
+  - CFLAGS="-m32"
+  - CFLAGS="-m64"
+script:
+  - perl --version
+  - make
+  - make test
+# - make test-contrib TEST_RUNNER="valgrind -q --leak-check=full --dsymutil=yes --error-exitcode=1 bin/picrin"
+  - make clean
+  - make debug
+  - make test
