@@ -37,7 +37,7 @@ public final class SimpleVisibleComponentsPanel extends Composite implements Dro
   private final CheckBox checkboxShowHiddenComponents;
   private final ListBox listboxPhoneTablet; // A ListBox for Phone/Tablet/Monitor preview sizes
   private final ListBox listboxPhonePreview; // A ListBox for Holo/Material/iOS preview styles
-  private final int[][] drop_lst = { {320, 505}, {480, 675}, {768, 1024} };
+  private final int[][] drop_lst = { {296, 592}, {480, 675}, {768, 1024} };
   private final String[] drop_lst_phone_preview = { "Android Material", "Android Holo", "iOS" };
 
   // Corresponding panel for non-visible components (because we allow users to drop
@@ -104,7 +104,7 @@ public final class SimpleVisibleComponentsPanel extends Composite implements Dro
         boolean fixed = (sizing.equals("Fixed"));
         listboxPhoneTablet.setVisible(!fixed);
         if (fixed) {
-          changeFormPreviewSize(0, 320, 505);
+          changeFormPreviewSize(0, 296, 592);
         } else {
           getUserSettingChangeSize();
         }
@@ -173,8 +173,8 @@ public final class SimpleVisibleComponentsPanel extends Composite implements Dro
     String val = projectEditor.getProjectSettingsProperty(SettingsConstants.PROJECT_YOUNG_ANDROID_SETTINGS,
         SettingsConstants.YOUNG_ANDROID_SETTINGS_PHONE_TABLET);
     int idx = 0;
-    int width = 320;
-    int height = 505;
+    int width = 296;
+    int height = 592;
 
     if (val.equals("True")) {
       idx = 1;
@@ -262,7 +262,7 @@ public final class SimpleVisibleComponentsPanel extends Composite implements Dro
   public void enableTabletPreviewCheckBox(boolean enable){
     if (form != null){
       if (!enable){
-        changeFormPreviewSize(0, 320, 505);
+        changeFormPreviewSize(0, 296, 592);
         listboxPhoneTablet.setVisible(enable);
       } else {
         getUserSettingChangeSize();
